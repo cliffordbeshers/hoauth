@@ -89,8 +89,7 @@ import Control.Monad
 import Control.Monad.Trans
 import System.IO
 import System.Entropy (getEntropy)
-import System.Locale (defaultTimeLocale)
-import Data.Time (getCurrentTime,formatTime)
+import Data.Time (defaultTimeLocale, getCurrentTime,formatTime)
 import Data.Char (chr,ord)
 import Data.List (intercalate,sort)
 import Data.Word (Word8)
