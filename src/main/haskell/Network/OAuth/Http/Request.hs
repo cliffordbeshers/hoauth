@@ -376,9 +376,12 @@ instance Show FieldList where
   showsPrec _ = showString . intercalate "&" . map showField . unFieldList
     where showField (k,v) = encode k ++"="++ encode v
 
+instance Semigroup FieldList where
+  (FieldList as) <> (FieldList bs) = FieldList (as <> bs)
+
 instance Monoid FieldList where
   mempty  = FieldList []
-  mappend (FieldList as) (FieldList bs) = FieldList (as `mappend` bs)
+  mappend = (<>)
 
 instance Bi.Binary FieldList where
   put = Bi.put . unFieldList
