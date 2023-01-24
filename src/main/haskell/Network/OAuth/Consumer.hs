@@ -380,6 +380,10 @@ _timestamp = do { clock <- liftIO getCurrentTime
                 ; return (Timestamp $ formatTime defaultTimeLocale "%s" clock)
                 }
 
+instance Monad m => Applicative (OAuthMonadT m) where
+  pure = return
+  (<*>) = ap
+
 instance (Monad m) => Monad (OAuthMonadT m) where
   return a = OAuthMonadT $ \t -> return $ Right (t,a)
   fail err = OAuthMonadT $ \_ -> return $ Left err
