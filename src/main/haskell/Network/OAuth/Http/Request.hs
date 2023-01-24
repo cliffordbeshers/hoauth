@@ -67,7 +67,6 @@ import qualified Network.Curl.Types as Curl (Long)
 import Network.OAuth.Http.PercentEncoding
 import Network.OAuth.Http.Util
 import Data.List (intercalate,isPrefixOf)
-import Data.Monoid
 import Data.Char (toLower)
 import qualified Data.ByteString.Lazy as B
 import qualified Data.Binary as Bi
